@@ -31,6 +31,21 @@ async def chat(request: Request):
         }
  
     return {
+        "question" : matches[0]['question'],  # This is the question
         "response": matches[0]['answer'],  # This is the answer
         "similar_questions": [m['question'] for m in matches[1:]]  # Suggestions
+    }
+
+@app.get("/info")
+async def get_info():
+    return {
+        "description": "This is the LEAPBot API. Use the POST /chat endpoint to get responses based on your query.",
+        "POST /chat payload": {
+            "query": "Your question here"
+        },
+        "POST /chat response": {
+            "question": "The matched question from the database",
+            "response": "The corresponding answer",
+            "similar_questions": ["Similar question 1", "Similar question 2"]
+        }
     }
