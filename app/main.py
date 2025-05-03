@@ -49,3 +49,4 @@ async def get_info():
             "similar_questions": ["Similar question 1", "Similar question 2"]
         }
     }
+    
