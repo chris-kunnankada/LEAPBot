@@ -22,18 +22,18 @@ pip install -r requirements.txt
 python app/ingest.py
 ### Step 3 : Run FastAPI Server 
 uvicorn app.main:app --host 0.0.0.0 --port 8000
-### Step 4 : TMUX to keep server running
-sudo apt install tmux -y
+### Step 4 : Supervisord to ensure server stays running
+sudo apt install supervisord supervisorctl
+sudo supervisorctl reread
+sudo supervisorctl update
+sudo supervisorctl start chatbot
 
-tmux
-
-uvicorn app.main:app --host 0.0.0.0 --port 8000
-#### Press Ctrl + B, then D to detach
 
 ### Step 5 : nginx for prod (optional) (needs discussion)
-Install: sudo apt install nginx certbot python3-certbot-nginx
+Install: sudo apt install nginx
+Config file : chatbot
 
-Configure /etc/nginx/sites-available/yourdomain.com
+Configure /etc/nginx/sites-available/chatbot
 
 Point domain to EC2 IP via A record
 
