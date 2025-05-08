@@ -24,8 +24,11 @@ python app/ingest.py
 uvicorn app.main:app --host 0.0.0.0 --port 8000
 ### Step 4 : Supervisord to ensure server stays running
 sudo apt install supervisord supervisorctl
+
 sudo supervisorctl reread
+
 sudo supervisorctl update
+
 sudo supervisorctl start chatbot
 
 
