@@ -6,7 +6,7 @@ sudo apt update && sudo apt upgrade -y
 
 sudo apt install python3-pip python3-venv -y
 
-## Setup python venv (optional) (need to look into requirement)
+## Setup python venv (optional) (for linux)
 cd ~/chatbot
 
 python3 -m venv venv
@@ -21,7 +21,7 @@ pip install -r requirements.txt
 ### Step 2 : Run ingest script to create FAISS Vector mapping using excel 
 python app/ingest.py
 ### Step 3 : Run FastAPI Server 
-uvicorn app.main:app --host 0.0.0.0 --port 8000
+uvicorn app.main:app --host 0.0.0.0 --port 8002
 ### Step 4 : Supervisord to ensure server stays running
 sudo apt install supervisord supervisorctl
 
